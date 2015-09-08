@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+			<div class="login-container">
+        
+            <div class="login-box">
+               
+                <div class="login-body">
+                    <div class="login-title"><strong>Log In</strong> as Admin</div>
+                    <form action="" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="Username" name="username" value="{{ request.form.username}}" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            <input type="password" class="form-control" placeholder="Password" name="password" value="{{ request.form.password }}" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <a href="#" class="btn btn-link btn-block">Forgot your password?</a>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-info btn-block" type="submit">Log In</button>
+                        </div>
+                    </div>
+                    <div class="login-footer">
+                    <div class="pull-left">
+                         &copy; 2015 Andela Class X 
+                    </div>
+                    <div class="pull-right">
+                    	{% for messages in get_flashed_messages() %}
+			            <span class="success">{{ messages }}</span>
+			            {% endfor %}
+			            {% if error %}
+                    </div>
+                    </form>
+                </div>
+                
+                </div>
+            </div>
+            
+            <span class="error"><strong>Error:</strong> {{ error }}</span>
+        {% endif  %}
+        </div>
+		</div>
+	{% endblock %}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>Attendance Register</title>
+    {% endif %}
+</head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+
+</head>
+<body class="page-container-boxed">
+    <div class="container">
+        <div class="header col-md-12">
+            <h1><a href="{{ url_for('home') }}">Andela Gala Nite</a></h1>
+            <hr>
+        </div>
+  {% block content %}
+</div>
+
+</body>
+<script src="static/bootstrap.min.js"></script>
+<script src="static/jquery.min.js"></script>
+<script src="static/jquery-ui.min.js"></script>
+<script src="static/jquery-migrate.minjs"></script>
+<script src="static/bootstrap.min.js"></script>
+</html>
+  {% endblock %}

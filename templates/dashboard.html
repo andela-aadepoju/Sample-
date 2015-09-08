@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+                    {% for messages in get_flashed_messages() %}
+                    {{ message }}
+                      {% endfor %}
+              
+				<!-- Row for search and register -->
+<div class="row">
+
+<!-- register -->
+	<div class="col-md-4">
+<a href="/admin_insert" class="btn btn-md btn-block btn-primary mb-control active">Register New Person</a>
+		
+	</div>
+<!-- register ends -->
+<!-- Search -->
+	<div class="col-md-8">
+ 		<div class="form-group ">
+    
+    <div class="input-group">
+    <input class="form-control" type="text" id="formGroupInputLarge" placeholder="Search Users ">
+    <span class="input-group-addon "><span class="fa fa-search"></span></span>
+      
+    </div>
+   </div>
+  
+	</div>
+
+	<!-- search ends -->
+</div>
+<br>
+<hr>
+<!-- Row for search and register ends -->
+<!-- list of people registered -->
+<div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>Registered</strong> Users</h3>
+          <div class="pull-right col-md-3"><a href="/logout" class="btn btn-md btn-block btn-primary active">Logout</a>
+          </div>
+      </div>
+	
+          <table class="table datatable">
+          <thead>
+              <tr role=r"row">
+                  <th>Name</th>
+                  <th>Phone Number</th>
+                  <th>Email</th>
+                  <th>Address</th>
+                   <th>Table Number</th>
+                  <th> Mannage Reg. Lists</th>
+                     </tr>
+          </thead>
+          <tbody>	<!-- On rows -->
+          {% for users in users%}
+          <!-- On cells (`td` or `th`) -->
+            <td class="">{{users.name}}</td>
+            <td class="">{{users.phone_number}}</td>
+            <td class="">{{users.email}}</td>
+            <td class="">{{users.address}}</td>
+            <td class="">{{users.table}}</td>
+            <td class="">
+
+            <a class="btn btn-danger  btn-sm active" href="{{ url_for('delete', id=users.id) }}"><span class="fa fa-times"></span>Delete</a><strong> - </strong>
+
+            <a class="btn btn-primary active  btn-sm" href="{{ url_for('edit', id=users.id) }}"> <span class="fa fa-pencil"></span>Edit</a></td>
+          </tr>
+          {% endfor %}
+          </tbody>
+          </table>
+
+  </div>
+
+     {% endblock %}
+
+
+
+
+       
